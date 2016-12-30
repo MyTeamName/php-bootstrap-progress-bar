@@ -24,9 +24,26 @@ class ProgressBar
         $this->views = realpath($this->views);
     }
 
+    protected function getColorContextClass()
+    {
+        switch (true) {
+            case $this->percent < 51:
+                return 'danger';
+            case $this->percent < 100:
+                return 'warning';
+            case $this->percent = 100:
+                return 'success';
+            default:
+                return 'info';
+        }
+    }
+
     public function render(string $view = 'default') : string
     {
-        $data = ['percent' => $this->percent];
+        $data = [
+            'percent' => $this->percent,
+            'color'   => $this->getColorContextClass(),
+        ];
 
         $twig = new Twig_Environment(new Twig_Loader_Filesystem($this->views));
 

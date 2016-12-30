@@ -5,6 +5,6 @@
 
 use jpuck\php\bootstrap\ProgressBar\ProgressBar;
 
-$progressbar = new ProgressBar(75);
+$progressbar = new ProgressBar($percent = 79);
 
 echo $progressbar;

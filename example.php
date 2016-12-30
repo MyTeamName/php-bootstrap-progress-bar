@@ -2,10 +2,10 @@
 
 use jpuck\php\bootstrap\ProgressBar\ProgressBar;
 
-$progressbar = new ProgressBar($percent = 79);
-
 // use this if you don't already have bootstrap loaded
 // https://www.bootstrapcdn.com/
-echo $progressbar->getBootstrapCdn();
+echo ProgressBar::getBootstrapCdn();
+
+$progressbar = new ProgressBar($percent = 79);
 
 echo $progressbar;

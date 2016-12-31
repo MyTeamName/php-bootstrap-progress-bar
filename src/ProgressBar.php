@@ -49,6 +49,13 @@ class ProgressBar
         return "<style>$css</style>";
     }
 
+    // css to be used with WordPress only
+    public static function wp_head()
+    {
+        $url = plugins_url( 'css/style.css', __DIR__ );
+        echo "<link rel='stylesheet' type='text/css' href='$url'>";
+    }
+
     public function render(string $view = 'default') : string
     {
         $data = [
